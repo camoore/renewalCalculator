@@ -18,7 +18,38 @@
     </p>
     <p id="results"></p>
 
-    <script src="index.js" type="text/javascript"></script>
+    <script>
+        var amount = document.getElementById('amount');
+        var percent = document.getElementById('percent');
+        var age = document.getElementById('age');
+        var button = document.getElementById('clicked');
+        var list = document.getElementById('results');
+
+
+
+
+        function calculate(amount, percent){
+          var newpercent = percent/100;
+          return amount - (amount * newpercent);
+        }
+
+        function listFunction(){
+          var amountNow = amount.value;
+          var percentage = percent.value;
+          var ageNow = age.value;
+
+          while(ageNow <= 99){
+              amountNow = calculate(amountNow, percentage);
+              ageNow++;
+              var text = "Age: " + ageNow + "        $" + parseInt(amountNow);
+              list.innerHTML += text.replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
+              list.appendChild(document.createElement("br"));
+          }
+        }
+
+        button.addEventListener("click", listFunction);
+    </script>
+    <script src="/index.js" type="text/javascript"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   </body>
 </html>
