@@ -22,7 +22,8 @@
         <button type="button" class="btn btn-danger btn-md" id="cleared">Clear List</button>
       </div>
     </div>
-    <div id="results"></div>
+
+    <div class="jumbotron" id="results"></div>
 
     <script>
         var amount = document.getElementById('amount');
@@ -49,7 +50,7 @@
           while(ageNow <= 99){
               amountNow = calculate(amountNow, percentage);
               ageNow++;
-              var text = "Age: " + ageNow + "        $" + parseInt(amountNow);
+              var text = "At age " + ageNow + " you will have $" + parseInt(amountNow) + " in renewals.";
               list.innerHTML += text.replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
               list.appendChild(document.createElement("br"));
           }
