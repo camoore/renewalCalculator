@@ -11,16 +11,18 @@
     <title>Renewal Calculator</title>
   </head>
   <body>
-    <p>
-      <form>
-        Renewal Amount (per year): <br><input type="number"  id="amount"><br>
-        Percentage decrease(ex: 7%): <br><input type="number" id="percent" >%<br>
-        Current Age: <br><input type="number" id="age" ><br>
-      </form>
-      <button type="button" class="btn btn-primary btn-sm" id="clicked">Click to Calculate</button>
-      <button type="button" class="btn btn-danger btn-sm" id="cleared">Clear List</button>
-    </p>
-    <p id="results"></p>
+    <div class="jumbotron">
+      <div class="form-group">
+        <form>
+          Renewal Amount: <br><input type="number" class="form-control" id="amount" placeholder="Enter the amount in $ per year..."><br>
+          Percentage decrease: <br><input type="number" class="form-control" id="percent" placeholder="Enter the percent decrease per year ex: 12 ..."><br>
+          Current Age: <br><input type="number" class="form-control" id="age"  placeholder="Enter your age..." ><br>
+        </form>
+        <button type="button" class="btn btn-primary btn-md" id="clicked">Click to Calculate</button>
+        <button type="button" class="btn btn-danger btn-md" id="cleared">Clear List</button>
+      </div>
+    </div>
+    <div id="results"></div>
 
     <script>
         var amount = document.getElementById('amount');
