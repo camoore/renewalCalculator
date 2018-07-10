@@ -6,24 +6,31 @@
     <meta name="description" content="A site used to calculate insurance renewals">
     <meta name="keywords" content="Insurance, renewals, Calculator">
     <meta name="author" content="Cre Moore">
-
+    <link rel = "stylesheet" href="index.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <title>Renewal Calculator</title>
   </head>
   <body>
     <div class="jumbotron">
+      <h1 class="display-4">Renewal Calculator</h1>
+      <hr class="my-4">
       <div class="form-group">
         <form>
           Renewal Amount: <br><input type="number" class="form-control" id="amount" placeholder="Enter the amount in $ per year..."><br>
           Percentage decrease: <br><input type="number" class="form-control" id="percent" placeholder="Enter the percent decrease per year ex: 12 ..."><br>
           Current Age: <br><input type="number" class="form-control" id="age"  placeholder="Enter your age..." ><br>
         </form>
-        <button type="button" class="btn btn-primary btn-md" id="clicked">Click to Calculate</button>
-        <button type="button" class="btn btn-danger btn-md" id="cleared">Clear List</button>
+        <button type="button" class="btn btn-success btn-md" id="clicked">Click for Results</button>
+        <button type="button" class="btn btn-danger btn-md" id="cleared">Clear Results</button>
       </div>
     </div>
 
-    <div class="jumbotron" id="results"></div>
+    <div class="jumbotron" id="resultsDiv">
+      <h1 class="display-5">Results</h1>
+      <hr class="my-4">
+      <div id="results">
+      </div>
+    </div>
 
     <script>
         var amount = document.getElementById('amount');
@@ -32,6 +39,7 @@
         var button = document.getElementById('clicked');
         var clearButton = document.getElementById('cleared');
         var list = document.getElementById('results');
+        var listdiv = document.getElementById('resultsDiv');
 
 
 
@@ -46,11 +54,13 @@
           var percentage = percent.value;
           var ageNow = age.value;
 
+          list.style.display="block";
+          listdiv.style.display="block";
 
           while(ageNow <= 99){
               amountNow = calculate(amountNow, percentage);
               ageNow++;
-              var text = "At age " + ageNow + " you will have $" + parseInt(amountNow) + " in renewals.";
+              var text = "At age " + ageNow + " you will earn $" + parseInt(amountNow) + " in renewals.";
               list.innerHTML += text.replace(/\B(?=(\d{3})+(?!\d))/g, ",");;
               list.appendChild(document.createElement("br"));
           }
@@ -60,6 +70,8 @@
         button.addEventListener("click", listFunction);
         clearButton.addEventListener("click", function(){
           list.innerHTML = "";
+          list.style.display="none";
+          listdiv.style.display="none";
         })
     </script>
     <script src="/index.js" type="text/javascript"></script>
