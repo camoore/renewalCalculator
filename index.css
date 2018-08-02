@@ -1,6 +1,75 @@
-body {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
+@font-face {
+  font-family: Billabong;
+  src: url('assets/Billabong.ttf');
+}
+
+#results, #resultsDiv, .form-group, .iphone-page, .android-page {
+  display: none;
+}
+
+.topnavbar{
+  position: fixed;
+  z-index: 8;
+  top: 0;
+  width: 100%;
+  background-color: #283548;
+  box-shadow: 0 0 8px;
+}
+.topnavbar a {
+  float: left;
+  left: 28px;
+  display: block;
+  color: white;
+  padding: 0px 16px 0px 16px;
+  text-decoration: none;
+  font-size: 32px;
+}
+.topnavbar img{
+  position: absolute;
+  float: left;
+  top: 4px;
+}
+
+.seperator{
+  position: absolute;
+  color: white;
+  width: 1px;
+  font-size: 25px;
+  margin: 0 60px;
+}
+.title-name {
+  position: relative;
+  font-family: Billabong;
+  top: 3px;
+  color: white;
+}
+.topnavbar a:hover{
+  text-decoration: none;
+  color: #84888D;
+}
+.topnavbar img:hover{
+  opacity: .5;
+  cursor: pointer;
+}
+.home-page, body{
+  position: fixed;
+  height: 480px;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  z-index: -1;
+  background: -webkit-linear-gradient(left, #283548, #283333);
+}
+#device-img{
+  width: 408px;
+  margin: auto;
+  height: 612px;
+  position: absolute;
+}
+#download-ios-image:hover, #download-android-image:hover{
+  opacity: .5;
+  cursor: pointer;
+}
+.form-group{
+  margin-top: 100px;
 }
